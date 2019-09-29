@@ -7,6 +7,12 @@ if [[ $(id -u) -ne 0 ]]; then
 	exit 1;
 fi
 
+if [[ $# -ne 4 ]]; then
+	echo -e "\e[31m usage: sudo ./mac_changer.sh -i <interface> -m <mac_address_to_be_spoofed>\e[0m";
+	exit 1;
+fi
+
+
 while getopts ":i:m:" opt; do
   case $opt in
     i) interface="$OPTARG"
